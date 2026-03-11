@@ -3,7 +3,7 @@
 {
   programs.rofi = {
     enable = true;
-    terminal = "LIBGL_ALWAYS_SOFTWARE=1 kitty";
+    terminal = "kitty";
     location = "bottom";
     extraConfig = {
     };
