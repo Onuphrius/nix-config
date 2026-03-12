@@ -33,6 +33,7 @@
     ../../modules/programs/neovim.nix
     ../../modules/programs/librewolf.nix
     ../../modules/programs/git.nix
+    ../../modules/services/mpd.nix
   ];
 
   #Wallpapers

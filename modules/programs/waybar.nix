@@ -35,7 +35,8 @@ window#waybar {
 /* Floating modules */
 #workspaces,
 #mode,
-#clock {
+#clock,
+#battery {
   background: rgba(255, 255, 255, 0.85);
   color: #222222;
 
