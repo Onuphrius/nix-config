@@ -33,6 +33,7 @@
     ../../modules/programs/neovim.nix
     ../../modules/programs/librewolf.nix
     ../../modules/programs/git.nix
+    ../../modules/programs/rmpc.nix
     ../../modules/services/mpd.nix
   ];
 

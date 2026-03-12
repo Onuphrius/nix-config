@@ -53,10 +53,6 @@
 
   services.dbus.enable = true;
   
-  #Sound 
-  sound.enable = true;
-  hardware.pulseadio.enable = true;
-
   services.greetd = {
     enable = true;
     settings = {
