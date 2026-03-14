@@ -12,7 +12,7 @@ in {
       bars = [];
       colors = {};
       focus.followMouse = "no";
-      floating.border = 0;
+      floating.border = 1;
       defaultWorkspace = "workspace number 1";
       gaps = {
 	inner = 5;
@@ -38,7 +38,7 @@ in {
       window.border = 0;
       window.titlebar = false;
       window.commands = [
-	{ command = "border none"; criteria= { floating = true; }; }
+	{ command = "border 1"; criteria= { floating = true; }; }
       ];
       keybindings = let modifier = cfg.modifier; in lib.mkOptionDefault {
 	"${modifier}+q" = "kill";

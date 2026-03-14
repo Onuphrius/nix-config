@@ -23,8 +23,21 @@
     
     #Font
     nerd-fonts.zed-mono
+
+    #Music
+    yt-dlp
+    spotdl
   ];
-  
+  xdg.desktopEntries = {
+    rmpc = {
+      name = "rmpc";
+      genericName = "Music Player";
+      exec = "rmpc %U";
+      terminal = true;
+      categories = ["Music" "Player"];
+      mimeType=["audio/mpeg" "audio/x-mpegurl" "audio/ogg" "audio/flac"];
+    };
+  };
   imports = [
     ../../modules/programs/sway.nix
     ../../modules/programs/waybar.nix
