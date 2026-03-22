@@ -10,25 +10,44 @@
     file
     which
     tree
+    wl-clipboard
+    pwvucontrol
+    pavucontrol
+    helvum
+    hyprlock
+    #Screenshot
+    grim
+    slurp
 
     # TUI
     nnn
     btop
 
     # Language Servers
+      #Python
     pyright
+      #Rust
     rust-analyzer
+      #Nix
     nil
     nixfmt
     
     #Font
-    nerd-fonts.zed-mono
+    nerd-fonts.jetbrains-mono
 
     #Music
     yt-dlp
     spotdl
   ];
-  xdg.desktopEntries = {
+
+  fonts.fontconfig.enable = true;
+  fonts.fontconfig.defaultFonts = {
+    monospace = [ "JetBrains Mono Nerd Font"];
+    sansSerif = [ "JetBrains Mono Nerd Font"];
+    serif = [ "JetBrains Mono Nerd Font"];
+  };
+
+  xdg.desktopEntries =  {
     rmpc = {
       name = "rmpc";
       genericName = "Music Player";
@@ -45,6 +64,7 @@
     ../../modules/programs/rofi.nix
     ../../modules/programs/neovim.nix
     ../../modules/programs/librewolf.nix
+    ../../modules/programs/hyprlock.nix
     ../../modules/programs/git.nix
     ../../modules/programs/rmpc.nix
     ../../modules/services/mpd.nix

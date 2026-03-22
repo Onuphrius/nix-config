@@ -10,7 +10,16 @@ in {
     config = {
       modifier = "mod4";
       bars = [];
-      colors = {};
+      colors = {
+	focused = {
+	  background = "#285577";
+	  border = "#c4c4c4";
+	  childBorder = "#c4c4c4";
+	  indicator = "#c4c4c4";
+	  text = "#ffffff";
+	};
+
+      };
       focus.followMouse = "no";
       floating.border = 1;
       defaultWorkspace = "workspace number 1";
@@ -29,20 +38,23 @@ in {
       terminal = "kitty";
       output = {
        "*" = {
-	 bg = "${wallpapers}/dark_queen.jpg fill";
+	 bg = "${wallpapers}/mountain.jpg fill";
 	};
       };
       startup = [
 	#{ command = ""; always=true;}
       ];
-      window.border = 0;
+      window.border = 2;
       window.titlebar = false;
+      workspaceAutoBackAndForth = true;
       window.commands = [
 	{ command = "border 1"; criteria= { floating = true; }; }
       ];
       keybindings = let modifier = cfg.modifier; in lib.mkOptionDefault {
 	"${modifier}+q" = "kill";
 	"${modifier}+t" = "exec ${cfg.terminal}";
+	"${modifier}+s" = ''exec grim -g "$(slurp)" - | wl-copy'';
+	"${modifier}+l" = "exec hyprlock";
       };
 
 

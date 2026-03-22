@@ -1,18 +1,11 @@
-{config, pkgs}:
+{config, pkgs, ...}:
 
 {
   services.openssh.enable = true;
-  enviroment.etc."install.sh".source = "./install.sh";
+  users.users.root.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEwjaEC3NMfbKZ+YTTmcjUBUiqRLZZZJz8vuaODEmE8F bigschiff@pc"
+  ];
+  users.users.root.initialPassword = "root";
 
-  systemd.services.autoinstall = {
-    description = "Automatic NixOS Install";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
-
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "/etc/install.sh";
-    };
-  };
 }
 

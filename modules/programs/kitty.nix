@@ -3,6 +3,10 @@
 {
   programs.kitty = {
     enable = true;
+    font = {
+      name = "JetBrains Mono Nerd Font";
+      size = 12;
+    };
     keybindings = {
       "ctrl+c" = "copy_or_interrupt";
       "ctrl+v" = "paste_from_clipboard";
@@ -13,10 +17,6 @@
       backgorund = "#1C1C1C";
       foreground = "#FFFFFF";
       confirm_os_window_close = 0;
-
-      #font = {
-      #	size = 12;
-      #};
     };
   };
 }
