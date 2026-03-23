@@ -30,7 +30,7 @@
     nixosConfigurations = {
       laptop = nixpkgs.lib.nixosSystem {
         modules = [
-          ./hosts/laptop/configuration.nix
+          ./machines/laptop/configuration.nix
 
           home-manager.nixosModules.home-manager
           {
@@ -47,7 +47,7 @@
       };
       thinkcentre1 = nixpkgs.lib.nixosSystem {
 	modules = [
-	  ./hosts/thinkcentre1/configuration.nix
+	  ./machines/thinkcentre1/configuration.nix
 	  inputs.disko.nixosModules.disko
 	];
       };
@@ -56,7 +56,7 @@
 	system = "x86_64-linux";
 	modules = [
 	  "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
-	  ./hosts/installer/configuration.nix
+	  ./iso/minimal.nix
 	];
       };
     };

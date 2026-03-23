@@ -8,8 +8,11 @@
   ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Bootloader
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  #boot.loader.systemd-boot.enable = true;
+  #boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.efiSupport = true;
+  boot.loader.grub.efiInstallAsRemovable = true;
 
   # Networking
   networking.hostName = "cocaine";
