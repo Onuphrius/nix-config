@@ -8,53 +8,52 @@
   ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Bootloader
-  #boot.loader.systemd-boot.enable = true;
-  #boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.enable = true;
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.efiInstallAsRemovable = true;
-
-  # Networking
-  networking.hostName = "cocaine";
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  networking.hostName = "cocaine0";
   networking.networkmanager.enable = true;
 
   # Timezone
   time.timeZone = "Europe/Berlin";
-
-  # Internationalisation
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "de_DE.UTF-8";
-    LC_IDENTIFICATION = "de_DE.UTF-8";
-    LC_MEASUREMENT = "de_DE.UTF-8";
-    LC_MONETARY = "de_DE.UTF-8";
-    LC_NAME = "de_DE.UTF-8";
-    LC_NUMERIC = "de_DE.UTF-8";
-    LC_PAPER = "de_DE.UTF-8";
-    LC_TELEPHONE = "de_DE.UTF-8";
-    LC_TIME = "de_DE.UTF-8";
-  };
   console.keyMap = "de-latin1-nodeadkeys";
 
   # Users
-  users.users.cocaine = {
+  users.users.lab= {
     isNormalUser = true;
-    description = "cocaine";
+    description = "lab";
     extraGroups = [ "networkmanager" "wheel" ];
     openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEwjaEC3NMfbKZ+YTTmcjUBUiqRLZZZJz8vuaODEmE8F bigschiff@pc"
     ];
   };
-  
-  security.polkit.enable = true;
 
   # SSH
   services.openssh = {                                                                       
     enable = true;                                                                  
     settings.PasswordAuthentication = false;                                                 
+    settings.PermitRootLogin = false;
   };
 
-  services.dbus.enable = true;
+  #Networking
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 22 ];
+  };
+
+  environment.systemPackages = with pkgs; [
+    git
+  ];
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
+
+  system.autoUpgrade = {
+    enable = true;
+    allowReboot = false;
+  };
   
   # System version
   system.stateVersion = "25.11";

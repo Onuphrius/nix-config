@@ -4,7 +4,6 @@
 # Rofi Clipboard Manager
 # Rofi Window Switcher
 # GTK Theme
-# Lock screen
 # Media Control: playerctl
 # Network Manager: Gazelle
 # Bluetooth: bluez, bluetuith
@@ -36,7 +35,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-	   home-manager.users.lsd = import ./hosts/laptop/home.nix;
+	   home-manager.users.lsd = import ./machines/laptop/home.nix;
 	   home-manager.extraSpecialArgs = {
 	   	wallpapers = inputs.wallpapers;
 	   };
@@ -45,9 +44,9 @@
 	 }
         ];
       };
-      thinkcentre1 = nixpkgs.lib.nixosSystem {
+      thinkcentre0 = nixpkgs.lib.nixosSystem {
 	modules = [
-	  ./machines/thinkcentre1/configuration.nix
+	  ./machines/thinkcentre0/configuration.nix
 	  inputs.disko.nixosModules.disko
 	];
       };

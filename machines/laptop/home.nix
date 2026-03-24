@@ -68,6 +68,7 @@
     ../../modules/programs/git.nix
     ../../modules/programs/rmpc.nix
     ../../modules/services/mpd.nix
+    ../../modules/services/swayidle.nix
   ];
 
   #Wallpapers
