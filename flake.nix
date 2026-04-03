@@ -50,6 +50,19 @@
 	  inputs.disko.nixosModules.disko
 	];
       };
+      thinkcentre1 = nixpkgs.lib.nixosSystem {
+	modules = [
+	  ./machines/thinkcentre1/configuration.nix
+	  inputs.disko.nixosModules.disko
+	];
+      };
+      thinkcentre2 = nixpkgs.lib.nixosSystem {
+	modules = [
+	  ./machines/thinkcentre2/configuration.nix
+	  inputs.disko.nixosModules.disko
+	];
+      };
+
 
       installer = nixpkgs.lib.nixosSystem {
 	system = "x86_64-linux";

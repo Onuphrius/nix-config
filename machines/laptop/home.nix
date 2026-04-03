@@ -69,6 +69,7 @@
     ../../modules/programs/rmpc.nix
     ../../modules/services/mpd.nix
     ../../modules/services/swayidle.nix
+    ../../modules/services/mako.nix
   ];
 
   #Wallpapers
