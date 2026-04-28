@@ -13,7 +13,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 10;
   # Networking
-  networking.hostName = "lsd";
+  networking.hostName = "pc";
   networking.networkmanager.enable = true;
 
   # Timezone
@@ -35,12 +35,11 @@
   console.keyMap = "de-latin1-nodeadkeys";
 
   # Users
-  users.users.lsd = {
+  users.users.bigschniff = {
     isNormalUser = true;
-    description = "lsd";
+    description = "bigschniff";
     extraGroups = [ "networkmanager" "wheel" ];
     openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEwjaEC3NMfbKZ+YTTmcjUBUiqRLZZZJz8vuaODEmE8F bigschiff@pc"
     ];
   };
   
@@ -53,13 +52,6 @@
   };
 
   services.dbus.enable = true;
-  
-  services.octoprint = {
-    enable = true;
-    port = 5000;
-    openFirewall = true;
-  };
-  users.users.octoprint.extraGroups = [ "dialout" ];
 
   services.displayManager.ly.enable = true;
   environment.etc."ly/custom-sessions/sway.desktop".text = 
