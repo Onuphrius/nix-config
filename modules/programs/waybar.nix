@@ -37,7 +37,7 @@ window#waybar {
 #mode,
 #clock,
 #battery {
-  background: rgba(255, 255, 255, 0.85);
+  background: #c8c8c8;
   color: #222222;
 
   padding: 4px;

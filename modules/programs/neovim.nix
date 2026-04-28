@@ -7,8 +7,6 @@
     plugins = with pkgs.vimPlugins; [
     	#File navigation
 	nvim-tree-lua
-	#Syntax highlighting
-	nvim-treesitter.withAllGrammars
 	#LSP
 	nvim-lspconfig
 
@@ -43,10 +41,6 @@ vim.keymap.set("n", "<leader>s", function()
     end
 end, {
     desc = "Toggle focus tree/file",
-})
--- Treesitter
-require("nvim-treesitter.configs").setup({
-  highlight = { enable = true },
 })
 
 -- LSP (Neovim 0.11+)
@@ -90,5 +84,8 @@ cmp.setup({
     { name = "nvim_lsp" },
   },
 })
+
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" });
+vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"});
 '';
 }

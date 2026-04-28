@@ -4,15 +4,14 @@
   programs.rofi = {
     enable = true;
     terminal = "kitty";
-    location = "bottom";
     extraConfig = {
     };
     theme = builtins.toFile "theme.rasi"
 ''
 * {
-	bg:				#b5b5aa;
-	fg:				#2b2b2b;
-	button:				#9e9e95;
+	bg:				#EAEBEA;
+	fg:				#222222;
+	button:				#c8c8c8;
 
 	background-color:		@bg;
 	text-color:			@fg;

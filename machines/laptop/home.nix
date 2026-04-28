@@ -2,7 +2,7 @@
 {
   home.username = "lsd";
   home.homeDirectory = "/home/lsd";
-  home.packages = with pkgs; [
+  home.packages = (with pkgs; [
 
     # Utitlity
     fastfetch
@@ -13,8 +13,7 @@
     wl-clipboard
     pwvucontrol
     pavucontrol
-    helvum
-    hyprlock
+    wl-color-picker
     #Screenshot
     grim
     slurp
@@ -38,7 +37,17 @@
     #Music
     yt-dlp
     spotdl
-  ];
+
+    #Library
+    libnotify
+
+    #3d printing
+    orca-slicer
+    freecad
+    octoprint
+
+
+  ]);
 
   fonts.fontconfig.enable = true;
   fonts.fontconfig.defaultFonts = {
@@ -74,5 +83,5 @@
 
   #Wallpapers
   xdg.dataFile."wallpapers".source = wallpapers;
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
 }

@@ -10,7 +10,7 @@
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
+  boot.loader.systemd-boot.configurationLimit = 10;
   # Networking
   networking.hostName = "lsd";
   networking.networkmanager.enable = true;
@@ -53,22 +53,22 @@
 
   services.dbus.enable = true;
   
-  services.greetd = {
+  services.octoprint = {
     enable = true;
-    settings = {
-     default_session.command = ''
-      ${pkgs.tuigreet}/bin/tuigreet \
-        --time \
-        --asterisks \
-        --user-menu \
-        --cmd sway
-    '';
-    };
+    port = 5000;
+    openFirewall = true;
   };
-  environment.etc."greetd/environments".text = ''
-    sway
+  users.users.octoprint.extraGroups = [ "dialout" ];
+
+  services.displayManager.ly.enable = true;
+  environment.etc."ly/custom-sessions/sway.desktop".text = 
+  ''
+  [Desktop Entry]
+  Name=sway
+  Comment= A Wayland compositor
+  Exec= ${pkgs.dbus}/bin/dbus-run-session ${pkgs.swayfx}/bin/sway
+  Type=Application
   '';
-  
   # System version
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
 }

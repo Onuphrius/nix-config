@@ -2,7 +2,6 @@
 # Neovim colors
 # Notifications: Mako
 # Rofi Clipboard Manager
-# Rofi Window Switcher
 # GTK Theme
 # Media Control: playerctl
 # Network Manager: Gazelle
@@ -11,9 +10,9 @@
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     #TODO
@@ -35,13 +34,12 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-	   home-manager.users.lsd = import ./machines/laptop/home.nix;
-	   home-manager.extraSpecialArgs = {
-	   	wallpapers = inputs.wallpapers;
-	   };
+	    home-manager.users.lsd = import ./machines/laptop/home.nix;
+	    home-manager.extraSpecialArgs = {
+		wallpapers = inputs.wallpapers;
+	    };
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
-          
-	 }
+	  }
         ];
       };
       thinkcentre0 = nixpkgs.lib.nixosSystem {

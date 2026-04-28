@@ -10,7 +10,7 @@
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  networking.hostName = "cocaine2";
+  networking.hostName = "think2";
   networking.networkmanager.enable = true;
 
   # Timezone

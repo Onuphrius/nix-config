@@ -13,9 +13,9 @@ in {
       colors = {
 	focused = {
 	  background = "#285577";
-	  border = "#c4c4c4";
-	  childBorder = "#c4c4c4";
-	  indicator = "#c4c4c4";
+	  border = "#EAEBEA";
+	  childBorder = "#EAEBEA";
+	  indicator = "#EAEBEA";
 	  text = "#ffffff";
 	};
 
@@ -42,7 +42,7 @@ in {
 	};
       };
       startup = [
-	#{ command = ""; always=true;}
+	{ command = "exec ${pkgs.waybar}/bin/waybar"; always=false;}
       ];
       window.border = 2;
       window.titlebar = false;
@@ -55,6 +55,7 @@ in {
 	"${modifier}+t" = "exec ${cfg.terminal}";
 	"${modifier}+s" = ''exec grim -g "$(slurp)" - | wl-copy'';
 	"${modifier}+l" = "exec hyprlock";
+	"${modifier}+w" = ''exec rofi -show window -theme-str 'window { location: west; width: 20%;} inputbar {enabled: false;} listview {lines: 10; columns:1;}' -window-format "{t}"'';
       };
 
 
