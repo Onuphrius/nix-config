@@ -26,6 +26,25 @@
 
   outputs = inputs@{self, nixpkgs, home-manager, wallpapers, ... }: {
     nixosConfigurations = {
+
+      pc = nixpkgs.lib.nixosSystem {
+	modules = [
+          ./machines/pc/configuration.nix
+	  inputs.disko.nixosModules.disko
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+	    home-manager.users.bigschniff = import ./machines/pc/home.nix;
+	    home-manager.extraSpecialArgs = {
+		wallpapers = inputs.wallpapers;
+	    };
+            # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+	  }
+        ];
+
+      };
       laptop = nixpkgs.lib.nixosSystem {
         modules = [
           ./machines/laptop/configuration.nix

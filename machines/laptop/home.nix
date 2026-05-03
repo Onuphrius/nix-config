@@ -79,6 +79,7 @@
     ../../modules/services/mpd.nix
     ../../modules/services/swayidle.nix
     ../../modules/services/mako.nix
+    ../../modules/services/wlsunset.nix
   ];
 
   #Wallpapers
