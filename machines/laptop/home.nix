@@ -56,21 +56,10 @@
     serif = [ "JetBrains Mono Nerd Font"];
   };
 
-  xdg.desktopEntries =  {
-    rmpc = {
-      name = "rmpc";
-      genericName = "Music Player";
-      exec = "rmpc %U";
-      terminal = true;
-      categories = ["Music" "Player"];
-      mimeType=["audio/mpeg" "audio/x-mpegurl" "audio/ogg" "audio/flac"];
-    };
-  };
   imports = [
     ../../modules/desktop
     ../../modules/common
-    ../../modules/programs/rmpc.nix
-    ../../modules/services/mpd.nix
+    ../../modules/music
   ];
 
   #Wallpapers

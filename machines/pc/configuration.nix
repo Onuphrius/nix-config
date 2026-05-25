@@ -36,7 +36,7 @@
 
   # Users
   users.users.bigschniff = {
-    initialHashedPassword = "$y$j9T$Arvv8TEFo9Kn4SZ0jBghj0$9bJbUiJinFFMf7uABL0i7lyFWqb.BMMPmjm2b3i1tv1";
+    initialPassword = "1111";
     isNormalUser = true;
     description = "bigschniff";
     extraGroups = [ "networkmanager" "wheel" ];
