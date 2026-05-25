@@ -1,4 +1,4 @@
-  config, pkgs, lib, wallpapers, ...}:
+{config, pkgs, lib, wallpapers, ...}:
 #https://nix-community.github.io/home-manager/options.xhtml#opt-wayland.windowManager.sway.config
 let
   cfg = config.wayland.windowManager.sway.config;
