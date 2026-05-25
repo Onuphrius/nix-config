@@ -1,10 +1,11 @@
-{ config, pkgs, lib, wallpapers, ...}:
+  config, pkgs, lib, wallpapers, ...}:
 #https://nix-community.github.io/home-manager/options.xhtml#opt-wayland.windowManager.sway.config
 let
   cfg = config.wayland.windowManager.sway.config;
 in {
   wayland.windowManager.sway = {
     enable = true;
+    systemd.enable = true;
     package = pkgs.swayfx;
     wrapperFeatures = {gtk = true;};
     config = {
@@ -43,7 +44,9 @@ in {
       };
       startup = [
 	{ command = "exec ${pkgs.waybar}/bin/waybar"; always=false;}
-      ];
+	{ command = "exec systemctl --user import-environment WAYLAND_DISPLAY XDG_RUNTIME_DIR"; always=true;}
+	{ command = "exec systemctl --user restart wlsunset"; always=true;}
+];
       window.border = 2;
       window.titlebar = false;
       workspaceAutoBackAndForth = true;

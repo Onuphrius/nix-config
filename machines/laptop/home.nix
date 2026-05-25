@@ -67,19 +67,10 @@
     };
   };
   imports = [
-    ../../modules/programs/sway.nix
-    ../../modules/programs/waybar.nix
-    ../../modules/programs/kitty.nix
-    ../../modules/programs/rofi.nix
-    ../../modules/programs/neovim.nix
-    ../../modules/programs/librewolf.nix
-    ../../modules/programs/hyprlock.nix
-    ../../modules/programs/git.nix
+    ../../modules/desktop
+    ../../modules/common
     ../../modules/programs/rmpc.nix
     ../../modules/services/mpd.nix
-    ../../modules/services/swayidle.nix
-    ../../modules/services/mako.nix
-    ../../modules/services/wlsunset.nix
   ];
 
   #Wallpapers
