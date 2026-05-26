@@ -1,6 +1,6 @@
-{config, pkgs, ...}:
+{pkgs, ...}:
 {
-
+  
   services.mako = {
     enable = true;
     settings = {
@@ -18,4 +18,8 @@
       text-color = "#EAEBEA";
     };
   };
+
+  home.packages = ( with pkgs; [
+    libnotify
+  ]);
 }

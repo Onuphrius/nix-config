@@ -55,14 +55,6 @@
   services.dbus.enable = true;
 
   services.displayManager.ly.enable = true;
-  environment.etc."ly/custom-sessions/sway.desktop".text = 
-  ''
-  [Desktop Entry]
-  Name=sway
-  Comment= A Wayland compositor
-  Exec= ${pkgs.dbus}/bin/dbus-run-session ${pkgs.swayfx}/bin/sway
-  Type=Application
-  '';
-  # System version
+    # System version
   system.stateVersion = "26.05";
 }

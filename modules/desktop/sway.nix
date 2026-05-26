@@ -43,9 +43,6 @@ in {
 	};
       };
       startup = [
-	{ command = "exec ${pkgs.waybar}/bin/waybar"; always=false;}
-	{ command = "exec systemctl --user import-environment WAYLAND_DISPLAY XDG_RUNTIME_DIR"; always=true;}
-	{ command = "exec systemctl --user restart wlsunset"; always=true;}
 ];
       window.border = 2;
       window.titlebar = false;
@@ -72,4 +69,9 @@ in {
     '';
 
   };
+
+  home.packages = (with pkgs; [
+    grim
+    slurp
+  ]);
 }

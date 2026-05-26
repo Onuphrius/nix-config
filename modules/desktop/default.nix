@@ -7,5 +7,6 @@
     ./hyprlock.nix
     ./swayidle.nix
     ./wlsunset.nix
+    ./font.nix
   ];
 }

@@ -52,23 +52,18 @@
   };
 
   services.dbus.enable = true;
-  
-  services.octoprint = {
+  services.greetd = {
     enable = true;
-    port = 5000;
-    openFirewall = true;
-  };
-  users.users.octoprint.extraGroups = [ "dialout" ];
+    settings = {
+      default_session = {
+	command = ''${pkgs.tuigreet}/bin/tuigreet \
+          --time \
+          --cmd ${pkgs.swayfx}/bin/sway'';
+	user = "greeter";
 
-  services.displayManager.ly.enable = true;
-  environment.etc."ly/custom-sessions/sway.desktop".text = 
-  ''
-  [Desktop Entry]
-  Name=sway
-  Comment= A Wayland compositor
-  Exec= ${pkgs.dbus}/bin/dbus-run-session ${pkgs.swayfx}/bin/sway
-  Type=Application
-  '';
+      };
+    };
+  };
   # System version
   system.stateVersion = "26.05";
 }

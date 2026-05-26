@@ -1,6 +1,16 @@
 { config, pkgs, ... }:
 
 {
+  home.packages = (with pkgs; [
+    #Python
+    pyright
+    #Rust
+    rust-analyzer
+    #Nix
+    nil
+    nixfmt
+  ]);
+  
   programs.neovim = {
     enable = true;
     defaultEditor = true;

@@ -49,13 +49,7 @@
 
   ]);
 
-  fonts.fontconfig.enable = true;
-  fonts.fontconfig.defaultFonts = {
-    monospace = [ "JetBrains Mono Nerd Font"];
-    sansSerif = [ "JetBrains Mono Nerd Font"];
-    serif = [ "JetBrains Mono Nerd Font"];
-  };
-
+  
   imports = [
     ../../modules/desktop
     ../../modules/common
