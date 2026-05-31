@@ -4,7 +4,7 @@
 {
   imports = [
     ./hardware.nix
-    ./disko.nix
+    #./disko.nix
   ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
@@ -53,8 +53,19 @@
   };
 
   services.dbus.enable = true;
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+	command = ''${pkgs.tuigreet}/bin/tuigreet \
+          --time \
+          --cmd ${pkgs.swayfx}/bin/sway'';
+	user = "greeter";
 
-  services.displayManager.ly.enable = true;
+      };
+    };
+  };
+
     # System version
   system.stateVersion = "26.05";
 }

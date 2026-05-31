@@ -19,7 +19,6 @@
     slurp
 
     # TUI
-    nnn
     btop
 
     # Language Servers
