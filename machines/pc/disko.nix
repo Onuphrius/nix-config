@@ -2,7 +2,7 @@
   disko.devices = {
     disk.main = {
       type = "disk";
-      device = "/dev/sda"; # <-- change if needed
+      device = "/dev/disk/by-id/ata-HP_SSD_S700_250GB_HBSB29520100154"; # <-- change if needed
       content = {
         type = "gpt";
         partitions = {

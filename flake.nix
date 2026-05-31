@@ -27,7 +27,7 @@
       pc = nixpkgs.lib.nixosSystem {
 	modules = [
           ./machines/pc/configuration.nix
-	  #inputs.disko.nixosModules.disko
+	  inputs.disko.nixosModules.disko
 
           home-manager.nixosModules.home-manager
           {
