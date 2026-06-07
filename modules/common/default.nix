@@ -11,5 +11,6 @@
     ./librewolf.nix
     ./neovim.nix
     ./nnn.nix
+    ./signal.nix
   ];
 }

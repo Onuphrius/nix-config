@@ -1,7 +1,5 @@
-{config, pkgs, ...}:
 {
   services.wlsunset = {
-    
     enable = true;
     gamma = 0.6;
     sunrise = "7:00";
