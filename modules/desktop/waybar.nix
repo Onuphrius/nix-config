@@ -1,5 +1,3 @@
-{ config, pkgs, ... }:
-
 {
   programs.waybar = {
     enable = true;
@@ -20,7 +18,6 @@
 	"sway/workspaces" = {
 	 disable-scroll = true;
 	 all-outputs = true;
-	 persistent-workspaces = { "1" = []; "2" = []; "3" = []; "4" = [];};
 	};
       };
     };
