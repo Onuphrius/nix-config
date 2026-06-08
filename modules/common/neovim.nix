@@ -9,6 +9,8 @@
     #Nix
     nil
     nixfmt
+
+    ripgrep
   ]);
   
   programs.neovim = {
@@ -21,6 +23,7 @@
 	nvim-lspconfig
 
 	#Completion
+	nvim-autopairs
 	nvim-cmp
 	cmp-nvim-lsp
 	luasnip
@@ -38,6 +41,9 @@ require("config")
 
   xdg.configFile."nvim/lua/config.lua".text = 
 ''
+-- Auto Complete
+require("nvim-autopairs").setup({})
+
 -- File tree
 require("nvim-tree").setup({
   view = { width = 30 },

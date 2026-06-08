@@ -55,6 +55,7 @@ in {
 	"${modifier}+t" = "exec ${cfg.terminal}";
 	"${modifier}+s" = ''exec grim -g "$(slurp)" - | wl-copy'';
 	"${modifier}+l" = "exec hyprlock";
+	"${modifier}+n" = "exec wlsunset-toggle";
 	"${modifier}+w" = ''exec rofi -show window -theme-str 'window { location: west; width: 20%;} inputbar {enabled: false;} listview {lines: 10; columns:1;}' -window-format "{t}"'';
       };
 
