@@ -2,7 +2,7 @@
 {
   services.wlsunset = {
     enable = true;
-    gamma = 0.6;
+    gamma = 1;
     sunrise = "7:00";
     sunset = "22:00";
     temperature.night = 4000;

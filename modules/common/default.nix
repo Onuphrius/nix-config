@@ -12,5 +12,6 @@
     ./neovim.nix
     ./nnn.nix
     ./signal.nix
+    ./shell.nix
   ];
 }

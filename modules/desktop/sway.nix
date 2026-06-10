@@ -5,6 +5,7 @@ let
 in {
   wayland.windowManager.sway = {
     enable = true;
+    extraOptions = "--unsupported-gpu";
     systemd.enable = true;
     package = pkgs.swayfx;
     wrapperFeatures = {gtk = true;};

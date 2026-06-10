@@ -6,6 +6,8 @@
     ./hardware.nix
     ./disko.nix
     ../../modules/nixos
+    ../../modules/nixos/nvidia.nix
+    ../../modules/nixos/ollama.nix
   ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
@@ -17,11 +19,13 @@
   users.users.bigschniff = {
     initialPassword = "1111";
     isNormalUser = true;
-    description = "bigschniff";
+    shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" ];
     openssh.authorizedKeys.keys = [
     ];
   };
+
+  programs.zsh.enable = true;
   
   security.polkit.enable = true;
 
@@ -38,7 +42,7 @@
       default_session = {
 	command = ''${pkgs.tuigreet}/bin/tuigreet \
           --time \
-          --cmd ${pkgs.swayfx}/bin/sway'';
+          --cmd "${pkgs.swayfx}/bin/sway --unsupported-gpu"'';
 	user = "greeter";
 
       };
