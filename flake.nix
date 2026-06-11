@@ -1,95 +1,41 @@
-#TODO
-# Rofi Clipboard Manager
-# GTK Theme
-# Media Control: playerctl
-# Network Manager: Gazelle
-# Bluetooth: bluez, bluetuith
 {
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/release-26.05";
+    };
+
+    nixpkgs-unstable = {
+      url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    disko.url = "github:nix-community/disko";
-    disko.inputs.nixpkgs.follows = "nixpkgs";
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    import-tree = {
+      url = "github:denful/import-tree";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inpus.nixpkgs.follows = "nixpkgs";
+    };
+
     wallpapers = {
       url = "github:Onuphrius/wallpapers";
-      flake = false; # treat as a simple git repo
+      flake = false;
     };
   };
 
-  outputs = inputs@{self, nixpkgs, home-manager, wallpapers, ... }: {
-    nixosConfigurations = {
-
-      pc = nixpkgs.lib.nixosSystem {
-	modules = [
-          ./machines/pc/configuration.nix
-	  inputs.disko.nixosModules.disko
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-	    home-manager.users.bigschniff = import ./machines/pc/home.nix;
-	    home-manager.extraSpecialArgs = {
-		wallpapers = inputs.wallpapers;
-	    };
-	  }
-        ];
-
-      };
-
-      laptop = nixpkgs.lib.nixosSystem {
-        modules = [
-          ./machines/laptop/configuration.nix
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-	    home-manager.users.lsd = import ./machines/laptop/home.nix;
-	    home-manager.extraSpecialArgs = {
-		wallpapers = inputs.wallpapers;
-	    };
-	  }
-        ];
-      };
-
-
-      thinkcentre0 = nixpkgs.lib.nixosSystem {
-	modules = [
-	  ./machines/thinkcentre0/configuration.nix
-	  inputs.disko.nixosModules.disko
-	];
-      };
-
-      thinkcentre1 = nixpkgs.lib.nixosSystem {
-	modules = [
-	  ./machines/thinkcentre1/configuration.nix
-	  inputs.disko.nixosModules.disko
-	];
-      };
-
-      thinkcentre2 = nixpkgs.lib.nixosSystem {
-	modules = [
-	  ./machines/thinkcentre2/configuration.nix
-	  inputs.disko.nixosModules.disko
-	];
-      };
-
-
-      installer = nixpkgs.lib.nixosSystem {
-	system = "x86_64-linux";
-	modules = [
-	  "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
-	  ./iso/minimal.nix
-	];
-      };
-    };
-    
-    packages."x86_64-linux".iso = self.nixosConfigurations.installer.config.system.build.isoImage;
-  };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }
