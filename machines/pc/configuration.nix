@@ -8,6 +8,10 @@
     ../../modules/nixos
     ../../modules/nixos/nvidia.nix
     ../../modules/nixos/ollama.nix
+    ../../modules/nixos/steam.nix
+    ../../modules/nixos/wireshark.nix
+    ../../modules/nixos/minecraft_server.nix
+    ../../modules/common/mullvad.nix
   ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
@@ -20,13 +24,12 @@
     initialPassword = "1111";
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout"];
     openssh.authorizedKeys.keys = [
     ];
   };
 
   programs.zsh.enable = true;
-  
   security.polkit.enable = true;
 
   # SSH

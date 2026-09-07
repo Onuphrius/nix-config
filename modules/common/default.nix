@@ -2,7 +2,15 @@
 {
   home.packages = (with pkgs; [
     tree
-    btop
+    btop-cuda
+    obsidian
+    prismlauncher
+    arduino-ide
+    python3
+    freecad
+    vesktop
+    gimp
+    yubikey-manager
   ]);
 
   imports = [
