@@ -40,6 +40,7 @@ in {
       terminal = "kitty";
       output = {
        "*" = {
+	 mode = "1920x1080@144Hz";
 	 bg = "${wallpapers}/mountain.jpg fill";
 	};
       };

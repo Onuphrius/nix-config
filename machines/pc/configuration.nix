@@ -37,6 +37,15 @@
     enable = true;                                                                  
     settings.PasswordAuthentication = false;                                                 
   };
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
+  };
+
 
   services.dbus.enable = true;
   services.greetd = {

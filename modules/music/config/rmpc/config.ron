@@ -4,7 +4,6 @@
 (
     address: "/tmp/mpd_socket",
     password: None,
-    theme: Some("theme"),
     cache_dir: "~/.cache/rmpc",
     on_song_change: None,
     volume_step: 5,
