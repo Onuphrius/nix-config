@@ -43,6 +43,14 @@
       };
     };
   };
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
+  };
   # System version
   system.stateVersion = "26.05";
 }

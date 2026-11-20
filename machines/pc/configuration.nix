@@ -44,6 +44,12 @@
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
     ];
+    config.sway = {
+      default = [ "gtk" ];
+      "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
+      "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
+    };
+
   };
 
 
