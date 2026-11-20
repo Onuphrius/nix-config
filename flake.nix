@@ -1,5 +1,5 @@
 {
-  description = "NixOS configuration";
+  description = "Dendritic NixOS configuration";
 
   inputs = {
 
@@ -23,12 +23,11 @@
 
     import-tree = {
       url = "github:denful/import-tree";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
-      inpus.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
     wallpapers = {
