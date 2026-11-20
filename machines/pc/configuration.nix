@@ -10,7 +10,7 @@
     ../../modules/nixos/ollama.nix
     ../../modules/nixos/steam.nix
     ../../modules/nixos/wireshark.nix
-    ../../modules/nixos/minecraft_server.nix
+    #../../modules/nixos/minecraft_server.nix
     ../../modules/common/mullvad.nix
   ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

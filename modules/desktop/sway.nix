@@ -41,7 +41,7 @@ in {
       output = {
        "*" = {
 	 mode = "1920x1080@144Hz";
-	 bg = "${wallpapers}/mountain.jpg fill";
+	 bg = "${wallpapers}/dark_queen.jpg fill";
 	};
       };
       startup = [
@@ -64,6 +64,11 @@ in {
 
 
     };
+    #Should stop crashing of kitty because of weird timing with wayland surface operations
+    extraSessionCommands = ''
+    export WLR_RENDER_NO_EXPLICIT_SYNC=1
+    '';
+
     checkConfig = false;
     extraConfig = ''
     shadows enable
