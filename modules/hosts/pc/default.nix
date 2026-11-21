@@ -1,7 +1,7 @@
 {config, inputs, ... }:
 
 {
-  flake.nixosConfigurations.desktop =
+  flake.nixosConfigurations.pc =
     inputs.nixpkgs.lib.nixosSystem {
       system = "x85_64-linux";
       specialArgs = {
