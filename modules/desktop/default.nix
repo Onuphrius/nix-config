@@ -14,7 +14,7 @@
     ];
   };
   flake.modules.nixos.desktop = {
-    import = with config.flake.modules.nixos; [
+    imports = with config.flake.modules.nixos; [
       tuigreet
     ];
   };
