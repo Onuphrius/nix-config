@@ -4,7 +4,7 @@
   flake.modules.nixos.programs = {
     imports = with config.flake.modules.nixos; [
       steam
-      mullvad
+      #mullvad
     ];
   };
 

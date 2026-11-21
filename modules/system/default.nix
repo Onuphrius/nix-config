@@ -8,6 +8,7 @@
       networking
       nix
       ssh
+      security
     ];
   };
 }

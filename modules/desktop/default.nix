@@ -13,4 +13,9 @@
       wlsunset
     ];
   };
+  flake.modules.nixos.desktop = {
+    import = with config.flake.modules.nixos; [
+      tuigreet
+    ];
+  };
 }

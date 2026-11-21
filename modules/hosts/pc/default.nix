@@ -16,6 +16,7 @@
 	#System
 	system
 	programs
+	desktop
 	user_bigschniff
 	nvidia
 
