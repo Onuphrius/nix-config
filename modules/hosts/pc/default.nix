@@ -20,8 +20,6 @@
 	user_bigschniff
 	nvidia
 	unstable
-	#Host specific settings
-	./_settings.nix
 	#Home Manager
 	inputs.home-manager.nixosModules.home-manager
 	{
@@ -33,6 +31,7 @@
 	    };
 	    users.bigschniff = {
 	      imports = with config.flake.modules.homeManager; [
+		./_settings.nix
 		desktop
 		programs
 	      ];
