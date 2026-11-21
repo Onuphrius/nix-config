@@ -20,7 +20,7 @@
       shellIntegration.enableZshIntegration = true;
       enableGitIntegration = true;
     };
-    programs.sway.extraSessionCommands = lib.mkIf config.programs.sway.enable [
+    wayland.windowManager.sway.extraSessionCommands = lib.mkIf config.wayland.windowManager.sway.enable [
       ''export WLR_RENDER_NO_EXPLICIT_SYNC=1''
     ];
   };
