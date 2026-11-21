@@ -51,6 +51,10 @@
         search.privateDefault = "ddg";
         settings = {
           "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+	  #Lets you have dark mode for websites and resist fingerprinting
+	  "privacy.resistFingerprinting" = false;
+	  "privacy.fingerprintingProtection" = true;
+	  "privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme";
         };
       };
     };
