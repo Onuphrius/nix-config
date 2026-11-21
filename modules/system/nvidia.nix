@@ -11,9 +11,9 @@
     boot.kernelParams = [
       "nvidia_drm.modeset=1"
     ];
-    environment.systemPackages = with pkgs; [
-      cudatoolkit
-    ];
+    #environment.systemPackages = with pkgs; [
+    #  cudatoolkit
+    #];
     
     #Sway support
     programs.sway.extraOptions = lib.mkIf config.programs.sway.enable [
