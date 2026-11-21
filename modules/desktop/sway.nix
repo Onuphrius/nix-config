@@ -1,12 +1,12 @@
 {
-  flake.modules.homeManager.sway = {config, pkgs, lib, wallpapers, ...}: 
+  flake.modules.homeManager.sway = {config, pkgs, unstable, lib, wallpapers, ...}: 
   let 
     cfg = config.wayland.windowManager.sway.config;
   in {
     wayland.windowManager.sway = {
       enable = true;
       systemd.enable = true;
-      package = pkgs.swayfx;
+      package = pkgs.unstable.swayfx; #Because of crash on 0.5.3
       wrapperFeatures = {gtk = true;};
       config = {
 	modifier = "mod4";

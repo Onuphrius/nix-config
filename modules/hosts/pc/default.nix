@@ -19,7 +19,9 @@
 	desktop
 	user_bigschniff
 	nvidia
-
+	unstable
+	#Host specific settings
+	./_settings.nix
 	#Home Manager
 	inputs.home-manager.nixosModules.home-manager
 	{
